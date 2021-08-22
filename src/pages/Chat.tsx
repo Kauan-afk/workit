@@ -10,10 +10,7 @@ import { firebase, database, auth } from '../services/firebase';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-
-type Cu ={
-    messages: string;
-}
+import ScrollableFeed from 'react-scrollable-feed';
 
 
 
@@ -75,16 +72,8 @@ export function Chat() {
         setFormValue('');
 
     }
-
-
-    
-
-        
-
         
     
-
-
     
     return(
         <div id="my-perfil">
@@ -101,30 +90,30 @@ export function Chat() {
 
                 <div className="main-right">
 
-                    <div className="content">
                     
-
-                        {messages.map((message: any) => (
-                            <div className="message-info">
-                                <div className="message-content">
-                                    <p>{message.name}</p>   
+                    
+                        <ScrollableFeed>
+                        <div id="testee" className="content">
+                            {messages.map((message: any) => (
+                                <div className="message-info">
+                                    <div className="message-content">
+                                        <p>{message.name}</p>   
+                                    </div>
+                                    <div className="message-user-info">
+                                        <img src={message.photoURL} alt={message.username} />   
+                                        <span>{message.username}</span>
+                                    </div>
                                 </div>
-                                <div className="message-user-info">
-                                    <img src={message.photoURL} alt={message.username} />   
-                                    <span>{message.username}</span>
-                                </div>
-                            </div>
-                        ))}
-                   
-
-
-                </div>
+                            ))}
+                        </div>
+                        </ScrollableFeed>
+                        
                     
 
 
                     <form className="formChat" onSubmit={sendMessage}>
-                        <input type="text" value={formValue} onChange={ (e) => setFormValue(e.target.value)}/>
-                        <input type="submit" />
+                        <input type="text" value={formValue} onChange={ (e) => setFormValue(e.target.value)} placeholder="Enter your messages here"/>
+                        <button type="submit"><i className="fas fa-paper-plane"></i></button>
                     </form>
 
                 </div>   
