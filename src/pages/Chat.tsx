@@ -17,8 +17,6 @@ import ScrollableFeed from 'react-scrollable-feed';
 
 export function Chat() {
 
-    
-
     const [ formValue, setFormValue ] = useState('')
 
     const { user } = useContext(AuthContext);
@@ -90,8 +88,6 @@ export function Chat() {
 
                 <div className="main-right">
 
-                    
-                    
                         <ScrollableFeed>
                         <div id="testee" className="content">
                             {messages.map((message: any) => (

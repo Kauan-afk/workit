@@ -34,7 +34,7 @@ export function Header() {
 
                 <div className="perfil">
 
-                    <Link to="/inside/myPerfil"><img src={user?.avatar} alt="image" /></Link>
+                    <Link to="/inside/Chat"><img src={user?.avatar} alt="image" /></Link>
 
                     <div className="shortcut">
                         <button onClick={goToExplore} className="explore">
